@@ -9,6 +9,13 @@ El proyecto cumple con estrictos requisitos técnicos, asegurando un **diseño r
 
 ---
 
+## 🌐 Página Web
+
+Se puede visualizar el proyecto en el siguiente enlace:
+👉 [Pokédex Web - GitHub Pages](https://ronaldher841.github.io/Parcial_pokemon/)
+
+---
+
 ## ✨ Requisitos Funcionales
 
 ### 🔹 Pantalla Inicial
@@ -55,16 +62,7 @@ Muestra:
 
 ---
 
-
-Navega al directorio del proyecto.
-
-Abre el archivo **`index.html`** en tu navegador web.
-
-💡 *Sugerencia:* Para desarrollar localmente sin problemas de CORS, usa una extensión de servidor web local (como **Live Server** de VS Code).
-
----
-
-### 2. Estructura de Archivos
+## 📂 Estructura de Archivos
 
 ```
 .
@@ -72,8 +70,5 @@ Abre el archivo **`index.html`** en tu navegador web.
 ├── style.css           # Estilos con metodología BEM y diseño responsivo
 └── script.js           # Lógica, Fetch API, DOM y gestión de favoritos
 ```
-
-
-
 
 
