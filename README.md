@@ -55,15 +55,6 @@ Muestra:
 
 ---
 
-## ▶️ Guía de Uso Rápido
-
-### 1. Clonar y Ejecutar el Proyecto
-
-Clona el repositorio en tu máquina local:
-
-```bash
-git clone https://www.youtube.com/watch?v=eQMcIGVc8N0
-```
 
 Navega al directorio del proyecto.
 
