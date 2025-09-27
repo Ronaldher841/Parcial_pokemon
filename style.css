@@ -1,0 +1,359 @@
+/* Variables CSS */
+:root {
+    --color-primary: #CC0000; /* Rojo Pokédex */
+    --color-secondary: #3B4CCA; /* Azul Pokédex */
+    --color-background: #f0f0f0;
+    --color-text: #333;
+    --color-light: #fff;
+    --font-family: sans-serif;
+}
+
+/* Base */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    /* Fondo con degradado verde y amarillo claro */
+    background: linear-gradient(
+        180deg, 
+        #f4ffaa 0%,   /* Amarillo muy claro */
+        #c6ffb6 60%,   /* Verde claro suave */
+        #a6ff88 100%  /* Verde un poco más oscuro */
+    );
+    color: var(--color-text);
+    line-height: 1.6;
+    /* Aseguramos que el degradado cubra toda la altura de la ventana */
+    min-height: 100vh; 
+}
+
+/* ---------------------------------- */
+/* Bloque: header (ACTUALIZADO CON DEGRADADO) */
+/* ---------------------------------- */
+.header {
+    /* Usamos un degradado lineal para combinar los colores */
+    background: linear-gradient(
+        90deg, 
+        rgba(255, 100, 100, 1) 0%,     /* Rojo claro (Red) */
+        rgba(100, 100, 255, 1) 25%,    /* Azul claro (Blue) */
+        rgba(255, 255, 255, 1) 50%,    /* Blanco (White) */
+        rgba(255, 255, 150, 1) 75%,    /* Amarillo claro (Yellow) */
+        rgba(255, 100, 100, 1) 100%    /* Rojo claro (de nuevo, para el ciclo) */
+    );
+    color: var(--color-light); /* Mantenemos el color de letra claro */
+    padding: 1.5rem 1rem; /* Aumentamos un poco el padding */
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra más fuerte */
+}
+
+.header__title {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #333; /* Cambiamos a color oscuro para resaltar sobre el blanco/amarillo */
+    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.8);
+    /* Propiedad para "redondear" visualmente las letras, aunque es sutil en fuentes sans-serif */
+    letter-spacing: 2px;
+    padding: 5px 15px;
+    background-color: rgba(255, 255, 255, 0.5); /* Fondo semitransparente para el texto */
+    border-radius: 10px; /* Redondeamos el fondo del título */
+    display: inline-block; /* Necesario para que el padding y border-radius funcionen */
+}
+
+/* ---------------------------------- */
+/* Bloque: main */
+/* ---------------------------------- */
+.main {
+    padding: 20px;
+}
+
+/* ---------------------------------- */
+/* Bloque: controls */
+/* ---------------------------------- */
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+    .controls {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+
+.controls__search {
+    display: flex;
+    flex-grow: 1;
+    gap: 10px;
+}
+
+.controls__input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    flex-grow: 1;
+}
+
+.controls__button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s;
+}
+
+.controls__button--primary {
+    background-color: var(--color-primary);
+    color: var(--color-light);
+}
+
+.controls__button--primary:hover {
+    background-color: #a30000;
+}
+
+.controls__button--secondary {
+    background-color: var(--color-secondary);
+    color: var(--color-light);
+}
+
+.controls__button--secondary:hover {
+    background-color: #2c3a9f;
+}
+
+/* ---------------------------------- */
+/* Bloque: pokedex */
+/* ---------------------------------- */
+.pokedex {
+    display: grid;
+    gap: 20px;
+}
+
+/* Diseño Responsivo para PC/Tablets */
+@media (min-width: 1024px) {
+    .pokedex {
+        /* 1fr para favoritos, 2fr para detalle, 1.5fr para la lista */
+        grid-template-columns: 1fr 2fr 1.5fr;
+    }
+    .pokedex__section--favorites {
+        order: 1;
+    }
+    .pokedex__section--detail {
+        order: 2;
+    }
+    .pokedex__section--list {
+        order: 3;
+    }
+}
+
+.pokedex__section {
+    background-color: var(--color-light); 
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Nuevo estilo para la sección de favoritos (AZUL CON BLANCO) */
+.pokedex__section--favorites {
+    /* Degradado azul y blanco */
+    background: linear-gradient(
+        135deg, 
+        #FFFFFF 0%,    /* Blanco puro */
+        #E0EFFF 30%,    /* Azul muy claro */
+        #AEC6FF 70%,    /* Azul pastel */
+        #7AA7FF 100%   /* Azul un poco más intenso */
+    );
+}
+
+.pokedex__heading {
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    color: var(--color-primary);
+}
+
+.pokedex__list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    max-height: 400px; /* Para listas largas en PC */
+    overflow-y: auto;
+}
+
+@media (min-width: 1024px) {
+    .pokedex__list {
+        max-height: 600px;
+    }
+}
+
+.pokedex__message {
+    font-style: italic;
+    color: #666;
+    width: 100%;
+    text-align: center;
+}
+
+/* ---------------------------------- */
+/* Bloque: pokemon-card (Elemento de la lista) */
+/* ---------------------------------- */
+/* ---------------------------------- */
+/* Bloque: pokemon-card (Elemento de la lista) */
+/* ---------------------------------- */
+.pokemon-card {
+    /* CAMBIO AQUI: Fondo (interior) del cuadro verde claro y transparente */
+    background-color: rgba(144, 238, 144, 0.2); /* Verde claro (lightgreen) con 20% de opacidad */
+    
+    /* Borde (contorno) verde claro, redondeado y transparente (del cambio anterior) */
+    border: 2px solid rgba(144, 238, 144, 0.7); 
+    border-radius: 15px; 
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s, background-color 0.2s; 
+    width: calc(50% - 5px);
+}
+
+@media (min-width: 768px) {
+    .pokemon-card {
+        width: calc(33.33% - 7px);
+    }
+}
+
+@media (min-width: 1024px) {
+    .pokemon-card {
+        width: calc(50% - 5px);
+    }
+}
+
+.pokemon-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    border-color: rgba(144, 238, 144, 1); /* Borde opaco al hacer hover */
+    
+    /* Efecto al pasar el ratón: Aumentamos un poco la opacidad del fondo */
+    background-color: rgba(144, 238, 144, 0.4); 
+}
+
+.pokemon-card__name {
+    text-transform: capitalize;
+    font-weight: bold;
+    margin-top: 5px;
+    font-size: 1rem;
+}
+
+.pokemon-card__id {
+    color: #999;
+    font-size: 0.8rem;
+}
+
+/* ---------------------------------- */
+/* Bloque: detail (Detalle del Pokémon) */
+/* ---------------------------------- */
+.detail {
+    text-align: center;
+}
+
+.detail__header {
+    background-color: var(--color-secondary);
+    color: var(--color-light);
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.detail__name {
+    text-transform: capitalize;
+    font-size: 1.8rem;
+}
+
+.detail__favorite-button {
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    transition: transform 0.1s;
+}
+
+.detail__favorite-button:hover {
+    transform: scale(1.1);
+}
+
+/* Modificadores para el estado del favorito */
+.detail__favorite-button--unfavorited {
+    color: #ccc;
+}
+.detail__favorite-button--favorited {
+    color: gold;
+}
+
+.detail__image {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+    margin: 0 auto 15px;
+}
+
+.detail__types-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.detail__type {
+    padding: 5px 10px;
+    border-radius: 15px;
+    color: var(--color-light);
+    font-size: 0.9rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    /* Los colores se asignarán dinámicamente con JS */
+}
+
+.detail__stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 10px;
+    text-align: left;
+    margin-top: 15px;
+}
+
+.detail__stat-item {
+    background-color: #f5f5f5;
+    padding: 8px;
+    border-radius: 4px;
+}
+
+.detail__stat-name {
+    font-weight: bold;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    color: var(--color-primary);
+}
+
+.detail__stat-value {
+    font-size: 1.1rem;
+    color: var(--color-text);
+}
+
+.detail__info {
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    font-size: 1.1rem;
+}
+
+.detail__info-label {
+    font-weight: bold;
+    color: var(--color-primary);
+}

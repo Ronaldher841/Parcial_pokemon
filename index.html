@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokédex </title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="poke.ico">
+</head>
+<body>
+    <header class="header">
+        <h1 class="header__title">Mini Pokédex</h1>
+    </header>
+
+    <main class="main">
+        <section class="controls">
+            <div class="controls__search">
+                <input type="text" id="searchInput" class="controls__input" placeholder="Buscar por nombre o ID...">
+                <button id="searchButton" class="controls__button controls__button--primary">Buscar</button>
+            </div>
+            <button id="loadInitialButton" class="controls__button controls__button--secondary">Cargar Iniciales (20)</button>
+        </section>
+
+        <div class="pokedex">
+            <aside class="pokedex__section pokedex__section--favorites">
+                <h2 class="pokedex__heading">🌟 Mis Favoritos</h2>
+                <div id="favoritesList" class="pokedex__list">
+                    <p class="pokedex__message">Aún no hay favoritos.</p>
+                </div>
+            </aside>
+
+            <section class="pokedex__section pokedex__section--detail" id="pokemonDetail">
+                <p class="pokedex__message">Selecciona un Pokémon de la lista o búscalo para ver sus detalles.</p>
+                </section>
+            
+            <section class="pokedex__section pokedex__section--list">
+                <h2 class="pokedex__heading">Pokémon Encontrados</h2>
+                <div id="pokemonList" class="pokedex__list">
+                    </div>
+            </section>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
