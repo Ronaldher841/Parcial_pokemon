@@ -1,78 +1,86 @@
-📖 Pokédex Web: Consulta de la PokéAPI
-🌟 Descripción del Proyecto
-Esta Pokédex Web es una aplicación de consulta interactiva desarrollada en HTML, CSS y JavaScript (Vanilla JS). Permite a los usuarios buscar información detallada sobre cualquier Pokémon por nombre o ID, ver una lista inicial de criaturas y guardar sus favoritos en el navegador.
+# 📚 Pokédex Web: Consulta de la PokéAPI
 
-El proyecto fue construido siguiendo estrictos requisitos técnicos, incluyendo el consumo de datos mediante Fetch API y una estructura de estilos modular utilizando la metodología BEM.
+## 🌟 Descripción del Proyecto
 
-✨ Requisitos Funcionales
-La aplicación cumple con las siguientes funcionalidades principales:
+Esta **Pokédex Web** es una aplicación interactiva desarrollada en **HTML, CSS (BEM)** y **JavaScript (Vanilla JS)**.
+Permite a los usuarios buscar información detallada sobre cualquier Pokémon por **nombre o ID**, cargar una lista inicial y gestionar sus favoritos de forma persistente.
 
-Pantalla Inicial:
+El proyecto cumple con estrictos requisitos técnicos, asegurando un **diseño responsivo** y un **código modular**.
 
-Búsqueda: Un campo de texto y botón para buscar Pokémon por nombre o número de ID.
+---
 
-Carga Inicial: Un botón para cargar y mostrar los primeros 20 Pokémon.
+## ✨ Requisitos Funcionales
 
-Detalle del Pokémon:
+### 🔹 Pantalla Inicial
 
-Muestra el Nombre, ID, Imagen oficial (Sprite), Tipos (ej. Fuego/Agua), Altura y Peso.
+* **Búsqueda:** Campo de entrada para buscar Pokémon por nombre o ID.
+* **Carga Inicial:** Botón para cargar los primeros 20 Pokémon.
 
-Muestra las Estadísticas Base (HP, Ataque, Defensa, Velocidad, etc.).
+### 🔹 Detalle del Pokémon
 
-Favoritos:
+Muestra:
 
-Permite marcar/desmarcar cualquier Pokémon como favorito desde su vista de detalle.
+* Nombre
+* ID
+* Imagen oficial (Sprite)
+* Tipos
+* Altura
+* Peso
+* Estadísticas Base (HP, Ataque, Defensa, etc.)
 
-Persistencia: Los favoritos se guardan localmente utilizando localStorage.
+### 🔹 Favoritos
 
-Muestra una sección lateral dedicada a "Mis Favoritos".
+* Permite marcar/desmarcar Pokémon como favoritos.
+* Utiliza **localStorage** para guardar los favoritos (persistencia).
+* Sección lateral dedicada a **"Mis Favoritos"**.
 
-🛠️ Requisitos Técnicos e Implementación
-El proyecto se construyó cumpliendo rigurosamente los siguientes requisitos técnicos:
+---
 
-1. Consumo de Datos con Fetch API
-API Utilizada: Todos los datos se obtienen de la PokéAPI (https://pokeapi.co/api/v2/pokemon/).
+## 🛠️ Requisitos Técnicos e Implementación
 
-Implementación: Se utiliza la API nativa de JavaScript, Fetch API, dentro de funciones async/await para gestionar la obtención de datos de manera asíncrona (fetchPokemonDetail, fetchInitialPokemon). Esto garantiza un manejo eficiente de las peticiones HTTP.
+### 1. Consumo de Datos y Manipulación del DOM
 
-2. Manipulación Dinámica del DOM
-Renderizado: JavaScript se encarga de crear dinámicamente los elementos HTML (div.pokemon-card, ul.detail__types-list, etc.) basados en los datos recibidos de la API.
+| Requisito Técnico                 | Implementación Clave                                                                                                                                      |
+| --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Fetch API para consumir datos** | Uso de la Fetch API de JavaScript con `async/await` para consultar la PokéAPI ([https://pokeapi.co/api/v2/pokemon/](https://pokeapi.co/api/v2/pokemon/)). |
+| **Manipulación del DOM**          | JavaScript crea dinámicamente elementos HTML y actualiza secciones (`#pokemonDetail`, `#favoritesList`) al renderizar datos.                              |
+| **Eventos en JavaScript**         | Gestión de eventos `click` y `keypress` para la búsqueda y la funcionalidad de favoritos (`toggleFavorite`).                                              |
 
-Actualización: La sección de detalles (#pokemonDetail) y la lista de favoritos (#favoritesList) se actualizan o re-renderizan completamente cada vez que se selecciona un Pokémon o se cambia el estado de un favorito.
+### 2. Estilización y Diseño
 
-3. Eventos en JavaScript para Interactividad
-Búsqueda: Se captura el evento click del botón de búsqueda y el evento keypress (tecla Enter) del campo de entrada para disparar la función handleSearch y fetchPokemonDetail.
+| Requisito Técnico   | Implementación Clave                                                                                                                     |
+| ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| **Metodología BEM** | Todas las clases CSS siguen la convención **Bloque__Elemento--Modificador** (Ej: `.pokemon-card__name`, `.controls__button--primary`).   |
+| **CSS Responsivo**  | Implementación de `@media queries` para un diseño adaptativo, utilizando **CSS Grid** para la estructura de tres columnas en escritorio. |
 
-Favoritos: Se adjuntan event listeners a los botones de favorito (.detail__favorite-button) para llamar a la función toggleFavorite y actualizar tanto el estado visual del botón como el localStorage.
+---
 
-Selección: Se adjunta un event listener click a cada tarjeta de Pokémon (.pokemon-card) para cargar su detalle (fetchPokemonDetail).
+## ▶️ Guía de Uso Rápido
 
-4. CSS Responsivo
-Diseño Fluido: El diseño se adapta automáticamente a diferentes tamaños de pantalla (móvil, tablet y escritorio).
+### 1. Clonar y Ejecutar el Proyecto
 
-Media Queries: Se utilizan @media queries para definir puntos de quiebre (breakpoints):
+Clona el repositorio en tu máquina local:
 
-Móvil (por defecto): Estructura apilada verticalmente. La lista muestra 2 tarjetas por fila.
+```bash
+git clone https://www.youtube.com/watch?v=eQMcIGVc8N0
+```
 
-Escritorio (1024px+): Se usa CSS Grid para crear un diseño de tres columnas (Favoritos, Detalle, Lista) con proporciones definidas (1fr 2fr 1.5fr).
+Navega al directorio del proyecto.
 
-5. Metodología BEM (Bloque Elemento--Modificador)
-Clasificación: Todas las clases CSS siguen la convención BEM para asegurar un código modular, escalable y legible.
+Abre el archivo **`index.html`** en tu navegador web.
 
-Bloques: Ej. .pokedex, .header, .controls, .pokemon-card.
+💡 *Sugerencia:* Para desarrollar localmente sin problemas de CORS, usa una extensión de servidor web local (como **Live Server** de VS Code).
 
-Elementos: Ej. .pokedex__list, .header__title, .controls__input, .pokemon-card__name.
+---
 
-Modificadores: Ej. .controls__button--primary, .detail__favorite-button--favorited.
+### 2. Estructura de Archivos
 
-▶️ Cómo Iniciar el Proyecto
-Clona o descarga este repositorio.
-
-Abre el archivo index.html en tu navegador.
-
-(Recomendado) Utiliza una extensión de servidor local (como Live Server de VS Code) para evitar problemas de CORS al cargar los archivos, especialmente si deseas probar la funcionalidad en tu dispositivo móvil.
-
-
+```
+.
+├── index.html          # Estructura principal de la Pokédex
+├── style.css           # Estilos con metodología BEM y diseño responsivo
+└── script.js           # Lógica, Fetch API, DOM y gestión de favoritos
+```
 
 
 
